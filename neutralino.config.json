@@ -1,0 +1,32 @@
+{
+    "applicationId": "com.loloof64.chesspgnreviser",
+    "port": 0,
+    "defaultMode": "window",
+    "enableHTTPServer": true,
+    "enableNativeAPI": true,
+    "url": "/resources/",
+    "nativeBlockList": [],
+    "globalVariables": {
+        "TEST": "Test Value"
+    },
+    "modes": {
+        "window": {
+            "title": "Chess Pgn Reviser",
+            "width": 800,
+            "height": 500,
+            "fullScreen": false,
+            "alwaysOnTop": false,
+            "icon": "/resources/icons/appIcon.png",
+            "enableInspector": true,
+            "borderless": false,
+            "maximize": false
+        },
+        "browser": {},
+        "cloud": {}
+    },
+    "cli": {
+        "binaryName": "ChessPgnReviser",
+        "resourcesPath": "/resources/",
+        "clientLibrary": "/resources/neutralino.js"
+    }
+}

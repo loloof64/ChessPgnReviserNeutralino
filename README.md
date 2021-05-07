@@ -1,24 +1,24 @@
 # chess-pgn-reviser
 
-## Project setup
-```
-yarn install
-```
+Load your chess Pgn file and try to recover moves from your side.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Developers
 
-### Compiles and minifies for production
-```
-yarn build
-```
+### Linux users
 
-### Lints and fixes files
-```
-yarn lint
-```
+#### Setup
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Install nodejs
+2. Install yarn : `npm install -g yarn` and `~/.yarn/bin` to your $PATH
+3. Install neutralino cli : `npm install -g @neutralinojs/neu`
+3. `chmod +x build.sh`
+
+#### Build
+
+`sh build.sh`
+
+The program is in the dist folder if build successful.
+
+## Credits
+
+App icon has been downloaded from https://www.flaticon.com/free-icon/chess_178148 and designed by Flat Icons.
