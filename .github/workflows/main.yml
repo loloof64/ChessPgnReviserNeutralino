@@ -1,0 +1,48 @@
+name: "build-artifacts"
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.1.5
+        with:
+          # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
+          node-version: 16.1.0
+          # Set this option if you want the action to check for the latest available version that satisfies the version spec
+          check-latest: true
+      - name: install yarn
+        run: npm install -g yarn
+      - name: install neutralino
+        run: yarn global add @neutralinojs/neu
+      - name: install other project dependencies
+        run: yarn
+      - name: build project
+        run: yarn build
+      - name: get version
+        run: echo "PACKAGE_VERSION=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+      - name: get release message
+        run: echo "RELEASE_MESSAGE=$(node -p "require('./package.json').release_message")" >> $GITHUB_ENV
+      - name: create release
+        uses: ncipollo/release-action@v1.8.4
+        with:
+          # An optional flag which indicates if artifact read or upload errors should fail the build.
+          artifactErrorsFailBuild: true
+          # An optional set of paths representing artifacts to upload to the release. This may be a single path or a comma delimited list of paths (or globs)
+          artifacts: /dist/ChessPgnReviser/res.neu, /dist/ChessPgnReviser/WebView2Loader.dll, /dist/ChessPgnReviser/ChessPgnReviser-win.exe, /dist/ChessPgnReviser/ChessPgnReviser-mac
+          # An optional body file for the release. This should be the path to the file
+          bodyFile: /release.md
+          draft: false 
+          prerelease: false 
+          replacesArtifacts: true
+          token: ${{ secrets.GITHUB_TOKEN }}
