@@ -8,7 +8,8 @@ Load your chess Pgn file and try to recover moves from your side.
 
 1. Install nodejs
 2. Install yarn : `npm install -g yarn` and `~/.yarn/bin` to your $PATH
-4. Install neutralino cli : `npm install -g @neutralinojs/neu`
+3. Install neutralino cli : `npm install -g @neutralinojs/neu` or `yarn global add @neutralinojs/neu`
+4. Install other project dependencies : `npm install` or `yarn`
 
 ### Build
 

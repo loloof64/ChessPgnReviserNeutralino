@@ -40,8 +40,7 @@ jobs:
           artifactErrorsFailBuild: true
           # An optional set of paths representing artifacts to upload to the release. This may be a single path or a comma delimited list of paths (or globs)
           artifacts: /dist/ChessPgnReviser/res.neu, /dist/ChessPgnReviser/WebView2Loader.dll, /dist/ChessPgnReviser/ChessPgnReviser-win.exe, /dist/ChessPgnReviser/ChessPgnReviser-mac
-          # An optional body file for the release. This should be the path to the file
-          bodyFile: /release.md
+          body: ${{ env.RELEASE_MESSAGE }}
           draft: false 
           prerelease: false 
           replacesArtifacts: true
