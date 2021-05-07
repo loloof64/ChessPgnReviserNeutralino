@@ -44,4 +44,5 @@ jobs:
           draft: false 
           prerelease: false 
           replacesArtifacts: true
+          tag: v${{ env.PACKAGE_VERSION }}
           token: ${{ secrets.GITHUB_TOKEN }}
